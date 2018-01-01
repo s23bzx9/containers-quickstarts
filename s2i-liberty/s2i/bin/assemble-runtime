@@ -11,8 +11,8 @@ if [ -d "$S2I_DESTINATION/src/artifacts" ]; then
 fi
 
 if [ -d "$S2I_DESTINATION/src/config" ]; then
-  #echo copy anything in $S2I_DESTINATION/src/artifacts to dropins
-  cp $S2I_DESTINATION/src/config/* /config
+  #echo copy anything in $S2I_DESTINATION/src/config to config
+  cp -r $S2I_DESTINATION/src/config/* /config
 fi
 
 exit $rc
