@@ -15,4 +15,7 @@ if [ -d "$S2I_DESTINATION/src/config" ]; then
   cp -r $S2I_DESTINATION/src/config/* /config
 fi
 
+# Install any new features specified in defaultServer
+bin/installUtility install defaultServer
+
 exit $rc
