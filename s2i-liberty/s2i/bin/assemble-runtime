@@ -16,6 +16,6 @@ if [ -d "$S2I_DESTINATION/src/config" ]; then
 fi
 
 # Install any new features specified in defaultServer
-/opt/ibm/wlp/bin/installUtility install defaultServer
+/opt/ibm/wlp/bin/installUtility --acceptLicense install defaultServer
 
 exit $rc
