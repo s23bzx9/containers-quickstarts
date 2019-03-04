@@ -2,7 +2,8 @@
 # It builds using maven and runs the resulting artifacts on WildFly 10.1.0 Final
 
 FROM websphere-liberty:webProfile7
-MAINTAINER Raffaele Spazzoli <rspazzol@redhat.com>
+USER root
+MAINTAINER David Stanke <David.Stanke2@skoda-auto.cz>
 
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/s2i \
       io.s2i.scripts-url=image:///usr/local/s2i \
