@@ -25,7 +25,7 @@ ENV STI_SCRIPTS_PATH="/usr/local/s2i" \
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH 
 
 
-RUN useradd -u 1001 -r -g 0 -s /sbin/nologin -c "Default Application User" default && \
+RUN useradd -u 1001 -r -g 0 -s /sbin/nologin -c "Default Application User" appuser && \
     chown -R 1001:0 /config && \
     chmod -R g+rw /config && \
     chown -R 1001:0 /opt/ibm/wlp/usr/servers/defaultServer && \
