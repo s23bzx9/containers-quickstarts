@@ -36,7 +36,6 @@ COPY ./placeholder.txt $WORKDIR/artifacts
 COPY ./placeholder.txt $WORKDIR/config 
 
 WORKDIR $WORKDIR
-RUN ls -1al $WORKDIR/artifacts 
 
 EXPOSE $WLP_DEBUG_ADDRESS
 # EXPOSE $JOLOKIA_PORT
