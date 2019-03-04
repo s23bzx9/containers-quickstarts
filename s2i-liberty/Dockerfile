@@ -25,15 +25,7 @@ ENV STI_SCRIPTS_PATH="/usr/local/s2i" \
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH 
 
 
-RUN chown -R 1001:0 /config && \
-    chmod -R g+rw /config && \
-    chown -R 1001:0 /opt/ibm/wlp/usr/servers/defaultServer && \
-    chmod -R g+rw /opt/ibm/wlp/usr/servers/defaultServer && \
-    chown -R 1001:0 /opt/ibm/wlp/output && \
-    chmod -R g+rw /opt/ibm/wlp/output && \
-    chown -R 1001:0 /logs && \
-    chmod -R g+rw /logs && \
-    mkdir -p $WORKDIR/artifacts && \
+RUN mkdir -p $WORKDIR/artifacts && \
     mkdir -p $WORKDIR/config && \
     chown -R 1001:0 $WORKDIR && \
     chmod -R g+rw $WORKDIR && \
