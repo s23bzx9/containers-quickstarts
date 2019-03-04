@@ -2,7 +2,6 @@
 # It builds using maven and runs the resulting artifacts on WildFly 10.1.0 Final
 
 FROM websphere-liberty:webProfile8
-USER root
 MAINTAINER David Stanke <David.Stanke2@skoda-auto.cz>
 
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/s2i \
@@ -26,18 +25,17 @@ ENV STI_SCRIPTS_PATH="/usr/local/s2i" \
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH 
 
 
-RUN useradd -u 1100 -r -g 0 -s /sbin/nologin -c "Default Application User" appuser && \
-    chown -R 1100:0 /config && \
+RUN chown -R 1001:0 /config && \
     chmod -R g+rw /config && \
-    chown -R 1100:0 /opt/ibm/wlp/usr/servers/defaultServer && \
+    chown -R 1001:0 /opt/ibm/wlp/usr/servers/defaultServer && \
     chmod -R g+rw /opt/ibm/wlp/usr/servers/defaultServer && \
-    chown -R 1100:0 /opt/ibm/wlp/output && \
+    chown -R 1001:0 /opt/ibm/wlp/output && \
     chmod -R g+rw /opt/ibm/wlp/output && \
-    chown -R 1100:0 /logs && \
+    chown -R 1001:0 /logs && \
     chmod -R g+rw /logs && \
     mkdir -p $WORKDIR/artifacts && \
     mkdir -p $WORKDIR/config && \
-    chown -R 1100:0 $WORKDIR && \
+    chown -R 1001:0 $WORKDIR && \
     chmod -R g+rw $WORKDIR && \
     ln $STI_SCRIPTS_PATH/assemble-runtime $STI_SCRIPTS_PATH/assemble    
 
@@ -49,5 +47,5 @@ WORKDIR $WORKDIR
 EXPOSE $WLP_DEBUG_ADDRESS
 # EXPOSE $JOLOKIA_PORT
 
-USER 1100
+USER 1001
 CMD ["$STI_SCRIPTS_PATH/run"]
