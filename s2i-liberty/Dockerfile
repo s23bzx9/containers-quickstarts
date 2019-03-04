@@ -1,14 +1,14 @@
 # This image provides a base for building and running WildFly applications.
 # It builds using maven and runs the resulting artifacts on WildFly 10.1.0 Final
 
-FROM websphere-liberty:webProfile7
+FROM websphere-liberty:webProfile8
 USER root
 MAINTAINER David Stanke <David.Stanke2@skoda-auto.cz>
 
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/s2i \
       io.s2i.scripts-url=image:///usr/local/s2i \
       io.k8s.description="Platform for building and running JEE applications on IBM WebSphere Liberty Profile" \
-      io.k8s.display-name="Liberty 16.0.0_03" \
+      io.k8s.display-name="Liberty 19.0.0.2" \
       io.openshift.expose-services="9080/tcp:http, 9443/tcp:https" \
       io.openshift.tags="runner, builder,liberty" \
       io.openshift.s2i.destination="/tmp"
